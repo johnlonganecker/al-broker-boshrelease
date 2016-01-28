@@ -12,9 +12,9 @@ update:
   update_watch_time: 1000-30000
 
 jobs:
-  - name: just_install_packages
+  - name: al_broker
     networks:
-      - name: al_broker1
+      - name: al_broker
 
 compilation:
   cloud_properties:
@@ -26,11 +26,11 @@ resource_pools:
       name: random
 
 networks:
-- name: al_broker1
+- name: al_broker
   type: manual
   subnets:
   - range: 10.244.25.0/24
-    name: al_broker1
+    name: al_broker
     gateway: 10.244.25.1
     static:
       - 10.244.25.2 - 10.244.25.60

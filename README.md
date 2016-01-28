@@ -34,7 +34,7 @@ Create a file `my-networking.yml`:
 ``` yaml
 ---
 networks:
-  - name: al-broker1
+  - name: al-broker
     type: dynamic
     cloud_properties:
       security_groups:

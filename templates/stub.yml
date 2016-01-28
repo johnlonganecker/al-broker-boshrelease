@@ -7,8 +7,8 @@ meta:
   stemcell:
     name: STEMCELL
 
-director_uuid: PLACEHOLDER-DIRECTOR-UUID
+director_uuid: <%= `bundle exec bosh status --uuid` %>
 
 releases:
-  - name: al-broker
+  - name: al_broker
     version: latest

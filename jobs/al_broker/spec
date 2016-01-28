@@ -1,0 +1,17 @@
+---
+name: al_broker
+packages:
+- al_broker
+templates:
+  bin/ctl: bin/ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  al_broker.listening_port:
+    description: Port that the al broker app listens on
+  al_broker.destination_port:
+    description: port that al broker talks to
+  al_broker.destination_url:
+    description: url that al broker talks to

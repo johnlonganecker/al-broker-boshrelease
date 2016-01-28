@@ -1,0 +1,5 @@
+check process al_broker
+  with pidfile /var/vcap/sys/run/al_broker/al_broker.pid
+  start program "/var/vcap/jobs/al_broker/bin/monit_debugger al_broker_ctl '/var/vcap/jobs/al_broker/bin/ctl start'"
+  stop program "/var/vcap/jobs/al_broker/bin/monit_debugger al_broker_ctl '/var/vcap/jobs/al_broker/bin/ctl stop'"
+  group vcap

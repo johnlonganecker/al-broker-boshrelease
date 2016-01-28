@@ -3,4 +3,4 @@ blobstore:
   provider: s3
   options:
     bucket_name: al-broker-boshrelease
-final_name: al-broker
+final_name: al_broker

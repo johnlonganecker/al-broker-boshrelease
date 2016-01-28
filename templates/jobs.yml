@@ -9,15 +9,19 @@ update:
   serial: false
 
 jobs:
-  - name: just_install_packages
+  - name: al_broker
     templates:
-    - name: just_install_packages
-      release: al-broker
+    - name: al_broker
+      release: al_broker
     instances: 1
     persistent_disk: 0
     resource_pool: small_z1
-    networks: (( param "please set just_install_package networks" ))
+    networks: (( param "please set al_broker networks" ))
 
 networks: (( param "please set networks" ))
 
-properties: {}
+properties:
+  al_broker:
+    listening_port: 8080
+    destination_port: 80
+    destination_url: http://10.244.3.46

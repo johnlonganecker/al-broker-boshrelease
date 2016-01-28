@@ -9,9 +9,9 @@ meta:
     version: latest
 
 jobs:
-  - name: just_install_packages
+  - name: al_broker
     networks:
-      - name: al_broker1
+      - name: al_broker
     persistent_disk: (( grab meta.persistent_disk ))
 
 compilation:
@@ -27,7 +27,7 @@ networks:
   - name: floating
     type: vip
     cloud_properties: {}
-  - name: al_broker1
+  - name: al_broker
     type: dynamic
     cloud_properties:
       security_groups: (( grab meta.security_groups ))
