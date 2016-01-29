@@ -1,0 +1,3 @@
+[submodule "src/al-broker"]
+	path = src/al-broker
+	url = git@github.com:johnlonganecker/al-broker.git
