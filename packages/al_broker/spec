@@ -3,5 +3,4 @@ name: al_broker
 dependencies:
 - golang
 files:
-  - al_broker/al-broker
-  - al_broker/al-broker.go
+  - al-broker/main.go

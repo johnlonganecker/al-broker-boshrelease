@@ -14,7 +14,7 @@ export GOPATH=$BOSH_INSTALL_TARGET:${REPO_DIR}/Godeps/_workspace
 export PATH=$GOROOT/bin:$PATH
 
 pushd $REPO_DIR
-BUILD_TYPE=install make shield
-cp bin/bkp ${BOSH_INSTALL_TARGET}/bin
+go build -o al-broker main.go
+mkdir ${BOSH_INSTALL_TARGET}/bin
+cp -a al-broker ${BOSH_INSTALL_TARGET}/bin
 popd
-
