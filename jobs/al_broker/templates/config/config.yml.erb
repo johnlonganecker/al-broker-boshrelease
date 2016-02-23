@@ -1,0 +1,35 @@
+port: <%= p('al_broker.port') %>
+sb_port: <%= p('al_broker.service_broker_port') %>
+sb_url: <%= p('al_broker.service_broker_url') %>
+routes:
+- listen:
+    url: /v2/catalog
+    http_method: GET
+    headers:
+      "content-type":
+      - "application/json"
+  destination:
+    url: "<%= p('al_broker.destination_url') %>:8000/catalog-service.json"
+    http_method: GET
+    headers:
+      "content-type":
+      - "application/json"
+    mappings:
+      services: services
+    extra_fields:
+      plan_updateable: true
+- listen:
+    url: /v2/service_instances
+    http_method: PUT
+    headers:
+      "content-type":
+      - "application/json"
+  destination:
+    url: "<%= p('al_broker.destination_url') %>:8000/catalog-service.json"
+    http_method: GET
+    headers:
+      "content-type":
+      - "application/json"
+    mappings:
+      services: services
+

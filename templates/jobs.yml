@@ -17,11 +17,23 @@ jobs:
     persistent_disk: 0
     resource_pool: small_z1
     networks: (( param "please set al_broker networks" ))
+  - name: service_catalog
+    templates:
+    - name: service_catalog
+      release: al_broker
+    instances: 1
+    persistent_disk: 0
+    resource_pool: small_z1
+    networks: (( param "please set service_catalog networks" ))
 
 networks: (( param "please set networks" ))
 
 properties:
+  service_catalog:
+    port: 8000
   al_broker:
-    listening_port: 8080
+    port: 8080
+    service_broker_port: 80
+    service_broker_url: http://10.244.25.2
     destination_port: 80
-    destination_url: http://10.244.3.46
+    destination_url: http://10.244.25.3

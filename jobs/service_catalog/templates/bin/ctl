@@ -4,10 +4,12 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 # Setup env vars and folders for the webapp_ctl script
-source /var/vcap/jobs/al_broker/helpers/ctl_setup.sh 'al_broker'
+source /var/vcap/jobs/service_catalog/helpers/ctl_setup.sh 'service_catalog'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
+
+SERVICE_CATALOG_PORT=<%= p('service_catalog.port') %>
 
 case $1 in
 
@@ -17,8 +19,11 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec chpst -u vcap:vcap al-broker \
-         --config /var/vcap/jobs/al_broker/config/config.yml
+    # need to run the http server from the job folder
+    cd /var/vcap/jobs/service_catalog
+
+    exec chpst -u vcap:vcap python \
+         -m SimpleHTTPServer $SERVICE_CATALOG_PORT \
          >>$LOG_DIR/$JOB_NAME.log 2>&1
 
     ;;
@@ -28,7 +33,7 @@ case $1 in
 
     ;;
   *)
-    echo "Usage: al-broker_ctl {start|stop}"
+    echo "Usage: service_catalog_ctl {start|stop}"
 
     ;;
 

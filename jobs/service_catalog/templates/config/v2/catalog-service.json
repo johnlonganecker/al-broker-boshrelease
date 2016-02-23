@@ -1,0 +1,31 @@
+{
+  "services": [
+    {
+      "id":"predix-asset-dev",
+      "name":"predix-asset-dev",
+      "description":"Create and store machine asset models and instances.",
+      "bindable":true,
+      "plans": [
+        {
+          "id":"pla_c845-3fbb-47b0-b2be-0714e04a8e19::predix-asset-dev",
+          "name":"Beta",
+          "description":"Basic Plan with minimal features.",
+          "free":true
+        },
+        {
+          "id":"pla_0fd1-1cec-4735-aa7b-ec5e8dc3e47a::predix-asset-dev",
+          "name":"Enterprises",
+          "description":"Premium Plan with premium features.",
+          "free":false
+        },
+        {
+          "id":"pla_a896-0dad-4682-bfe5-28e0077a0329::predix-asset-dev",
+          "name":"Tiered",
+          "description":"Starting at per Domain Object",
+          "free":true
+        }
+    ]
+    }
+  ]
+}
+

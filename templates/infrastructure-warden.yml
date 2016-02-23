@@ -15,6 +15,11 @@ jobs:
   - name: al_broker
     networks:
       - name: al_broker
+        static_ips: (( static_ips(0) ))
+  - name: service_catalog
+    networks:
+      - name: al_broker
+        static_ips: (( static_ips(1) ))
 
 compilation:
   cloud_properties:

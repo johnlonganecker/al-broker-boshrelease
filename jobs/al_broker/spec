@@ -8,10 +8,19 @@ templates:
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  config/config.yml.erb: config/config.yml
 properties:
-  al_broker.listening_port:
+  al_broker.port:
     description: Port that the al broker app listens on
+    defaut: 8080
+  al_broker.service_broker_port:
+    description: port that the service broker is listening on
+    default: 80
+  al_broker.service_broker_url:
+    description: service broker url
   al_broker.destination_port:
-    description: port that al broker talks to
+    description: port that al broker uses for service catalog
+    defaut: 8000
   al_broker.destination_url:
-    description: url that al broker talks to
+    default: http://localhost
+    description: url that al broker for the service catalog

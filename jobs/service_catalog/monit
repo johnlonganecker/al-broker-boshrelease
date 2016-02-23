@@ -1,0 +1,5 @@
+check process service_catalog
+  with pidfile /var/vcap/sys/run/service_catalog/service_catalog.pid
+  start program "/var/vcap/jobs/service_catalog/bin/monit_debugger service_catalog_ctl '/var/vcap/jobs/service_catalog/bin/ctl start'"
+  stop program "/var/vcap/jobs/service_catalog/bin/monit_debugger service_catalog_ctl '/var/vcap/jobs/service_catalog/bin/ctl stop'"
+  group vcap
