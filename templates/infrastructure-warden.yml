@@ -16,7 +16,7 @@ jobs:
     networks:
       - name: al_broker
         static_ips: (( static_ips(0) ))
-  - name: service_catalog
+  - name: mock_catalog_service
     networks:
       - name: al_broker
         static_ips: (( static_ips(1) ))

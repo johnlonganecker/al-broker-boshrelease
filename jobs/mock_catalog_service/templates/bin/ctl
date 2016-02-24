@@ -4,12 +4,12 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 # Setup env vars and folders for the webapp_ctl script
-source /var/vcap/jobs/service_catalog/helpers/ctl_setup.sh 'service_catalog'
+source /var/vcap/jobs/mock_catalog_service/helpers/ctl_setup.sh 'mock_catalog_service'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
 
-SERVICE_CATALOG_PORT=<%= p('service_catalog.port') %>
+SERVICE_CATALOG_PORT=<%= p('mock_catalog_service.port') %>
 
 case $1 in
 
@@ -20,7 +20,7 @@ case $1 in
     echo $$ > $PIDFILE
 
     # need to run the http server from the job folder
-    cd /var/vcap/jobs/service_catalog
+    cd /var/vcap/jobs/mock_catalog_service
 
     exec chpst -u vcap:vcap python \
          -m SimpleHTTPServer $SERVICE_CATALOG_PORT \
@@ -33,7 +33,7 @@ case $1 in
 
     ;;
   *)
-    echo "Usage: service_catalog_ctl {start|stop}"
+    echo "Usage: mock_catalog_service_ctl {start|stop}"
 
     ;;
 

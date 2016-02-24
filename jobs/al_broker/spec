@@ -19,8 +19,8 @@ properties:
   al_broker.service_broker_url:
     description: service broker url
   al_broker.destination_port:
-    description: port that al broker uses for service catalog
+    description: port that al broker uses for the mock catalog service
     defaut: 8000
   al_broker.destination_url:
     default: http://localhost
-    description: url that al broker for the service catalog
+    description: url that al broker for the mock catalog service

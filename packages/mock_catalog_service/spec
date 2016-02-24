@@ -1,0 +1,6 @@
+---
+name: mock_catalog_service
+dependencies: []
+files:
+  # needs one file or else bosh complains
+  - al-broker/main.go

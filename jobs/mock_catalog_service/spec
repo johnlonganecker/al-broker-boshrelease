@@ -1,7 +1,7 @@
 ---
-name: service_catalog
+name: mock_catalog_service
 packages:
-- service_catalog
+- mock_catalog_service
 templates:
   bin/ctl: bin/ctl
   bin/monit_debugger: bin/monit_debugger
@@ -10,6 +10,6 @@ templates:
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
   config/v2/catalog-service.json: catalog-service.json
 properties:
-  service_catalog.port:
+  mock_catalog_service.port:
     description: Port that the http server listens on
     defaut: 8000

@@ -17,19 +17,19 @@ jobs:
     persistent_disk: 0
     resource_pool: small_z1
     networks: (( param "please set al_broker networks" ))
-  - name: service_catalog
+  - name: mock_catalog_service
     templates:
-    - name: service_catalog
+    - name: mock_catalog_service
       release: al_broker
     instances: 1
     persistent_disk: 0
     resource_pool: small_z1
-    networks: (( param "please set service_catalog networks" ))
+    networks: (( param "please set mock_catalog_service networks" ))
 
 networks: (( param "please set networks" ))
 
 properties:
-  service_catalog:
+  mock_catalog_service:
     port: 8000
   al_broker:
     port: 8080
